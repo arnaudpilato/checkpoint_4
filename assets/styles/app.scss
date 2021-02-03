@@ -7,11 +7,15 @@
     padding: 0;
 }
 
+body {
+    padding-top: $spacing-3;
+}
+
 .carouselPicture{
     object-fit: cover;
 }
 
-img {
+.img {
     position: relative;
     object-fit: cover;
     border-radius: $border-radius;

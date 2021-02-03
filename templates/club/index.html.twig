@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Club{% endblock %}
+
+{% block body %}
+    <section class="Club">
+        <div class="container">
+            <h1 class="text-center mt-5">Clubs</h1>
+            <p class="mt-5 mb-5">Vous trouverez ci dessous la liste des différents club de france</p>
+            <div id="map" class="row">
+                {% block map %}{% include 'include/_map.html.twig' %}{% endblock %}
+            </div>
+            <div class="row mt-5">
+                <img class="img col-4 p-0" src="{{ asset('build/images/chat.1f866ed6.jpg') }}" alt="Image discussion">
+                <div class="col-7 offset-1">
+                    <h2>Discussion</h2>
+                    <p class="mt-3">Si vous souhaitez parler de votre passion avec nous ou si vous avez des questions c'est ici!</p>
+                    <div class="text-center mt-5">
+                        <a class="btn btn-primary" href="#">Rubrique Discussion</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5 flex-row-reverse">
+                <img class="img col-4 p-0" src="{{ asset('build/images/chat.1f866ed6.jpg') }}" alt="Image discussion">
+                <div class="col-8">
+                    <h2>Equipement</h2>
+                    <p class="mt-3">Besoin de renseignements sur du materiel ou découvrir des nouveaux éléments? C'est ici!</p>
+                    <div class="text-center mt-5">
+                        <a class="btn btn-primary" href="#">Rubrique Equipement</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <img class="img col-4 p-0" src="{{ asset('build/images/chat.1f866ed6.jpg') }}" alt="Image discussion">
+                <div class="col-7 offset-1">
+                    <h2>Disciplines</h2>
+                    <p class="mt-3">Athlétisme, Cross, Freestyle... Les disciplines c'est ici!</p>
+                    <div class="text-center mt-5">
+                        <a class="btn btn-primary" href="#">Rubrique Disciplines</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5 flex-row-reverse">
+                <img class="img col-4 p-0" src="{{ asset('build/images/chat.1f866ed6.jpg') }}" alt="Image discussion">
+                <div class="col-8">
+                    <h2>Marques</h2>
+                    <p class="mt-3">Besoin d'acheter du materiel ou obtenir des renseignements? C'est ici!</p>
+                    <div class="text-center mt-5">
+                        <a class="btn btn-primary" href="#">Rubrique Marques</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <img class="img col-4 p-0" src="{{ asset('build/images/chat.1f866ed6.jpg') }}" alt="Image discussion">
+                <div class="col-7 offset-1">
+                    <h2>Clubs</h2>
+                    <p class="mt-3">Vous voulez rencontrer d'autres monocyclistes ou découvrir qu'elles sont les clubs à coté de chez vous? C'est ici</p>
+                    <div class="text-center mt-5">
+                        <a class="btn btn-primary" href="{{ path('club') }}">Rubrique Clubs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

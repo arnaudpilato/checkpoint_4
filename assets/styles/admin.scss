@@ -1,0 +1,12 @@
+@import 'app.scss';
+
+.logo {
+  border-radius: $border-radius-logo;
+  background-color: $dark;
+}
+
+.caroussel-picture {
+  width: $admin-picture;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+}

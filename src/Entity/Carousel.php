@@ -4,6 +4,12 @@ namespace App\Entity;
 
 use App\Repository\CarouselRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use DateTime;
 
 /**
  * @ORM\Entity(repositoryClass=CarouselRepository::class)
@@ -27,6 +33,20 @@ class Carousel
      * @ORM\Column(type="string", length=255)
      */
     private ?string $page;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private ?\DateTimeInterface $updatedAt;
+
+    /**
+     * @Vich\UploadableField(mapping="path_file", fileNameProperty="path")
+     * @var File|null
+     * @Assert\File(
+     *     maxSize="1000000",
+     *     mimeTypes = {"image/png", "image/jpeg", "image/jpg", "image/gif",})
+     */
+    private ?File $pathFile = null;
 
     public function getId(): ?int
     {
@@ -55,5 +75,31 @@ class Carousel
         $this->page = $page;
 
         return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function setPathFile(?File $image = null): Carousel
+    {
+        $this->pathFile = $image;
+        if ($image) {
+            $this->updatedAt = new DateTime('now');
+        }
+        return $this;
+    }
+
+    public function getPathFile(): ?File
+    {
+        return $this->pathFile;
     }
 }

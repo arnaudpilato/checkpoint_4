@@ -1,0 +1,16 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Edit Carousel{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="text-center mt-5">Edit Carousel</h1>
+        <div class="mt-5">
+            {{ include('admin/carousel/_form.html.twig', {'button_label': 'Enregistrer'}) }}
+        </div>
+        <div class="text-right mt-5">
+            <a class="btn btn-secondary" href="{{ path('admin_carousel_index') }}">Retour</a>
+        </div>
+
+    </div>
+{% endblock %}

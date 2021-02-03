@@ -1,0 +1,45 @@
+{% extends 'admin.html.twig' %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('admin') }}
+{% endblock %}
+
+{% block title %}Carousel index{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="text-center my-5">Carousel</h1>
+        <table class="table">
+            <thead class="text-center">
+            <tr>
+                <th>Image</th>
+                <th>Page</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for carousel in carousels %}
+                <tr>
+                    <td>
+                        <img class="caroussel-picture" src="{{ asset('uploads/path/' ~ carousel.path) }}" alt="{{ carousel.path }}" title="{{ carousel.path }}">
+                    </td>
+                    <td>{{ carousel.page }}</td>
+                    <td>
+                        <a class="btn btn-primary" href="{{ path('admin_carousel_edit', {'id': carousel.id}) }}">Modifier</a>{{ include('admin/carousel/_delete_form.html.twig') }}
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td class="text-danger" colspan="8">Aucun résultat trouvé</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="text-center mt-5">
+            <a class="btn btn-secondary" href="{{ path('admin_carousel_new') }}">Ajouter</a>
+        </div>
+        <div class="text-right">
+            <a class="btn btn-secondary mt-5" href="{{ path('admin_index') }}">Retour</a>
+        </div>
+    </div>
+{% endblock %}

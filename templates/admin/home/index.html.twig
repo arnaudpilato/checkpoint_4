@@ -1,0 +1,29 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Administration{% endblock %}
+
+{% block body %}
+    <section class="accueil-admin">
+        <div class="container">
+            <h1 class="text-center mt-5">Administration</h1>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="text-center">
+                    <h2>Accueil</h2>
+                </div>
+                <div class=text-center>
+                    <a href="#"><img class="logo" src="{{ asset('build/images/home.png') }}"></a>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="text-center">
+                    <h2>Caroussel</h2>
+                </div>
+                <div class=text-center>
+                    <a href="{{ path('admin_carousel_index') }}"><img class="logo" src="{{ asset('build/images/carousel.png') }}"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

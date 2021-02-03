@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=CarouselRepository::class)
+ * @Vich\Uploadable
  */
 class Carousel
 {
@@ -15,17 +16,17 @@ class Carousel
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @ORM\Column(type="text")
      */
-    private $path;
+    private ?string $path = '';
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $page;
+    private ?string $page;
 
     public function getId(): ?int
     {

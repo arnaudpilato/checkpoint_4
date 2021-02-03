@@ -1,12 +1,16 @@
 {% extends 'admin.html.twig' %}
 
+{% block stylesheets %}
+    {{ encore_entry_link_tags('admin') }}
+{% endblock %}
+
 {% block title %}Carousel index{% endblock %}
 
 {% block body %}
     <div class="container">
         <h1 class="text-center my-5">Carousel</h1>
         <table class="table">
-            <thead>
+            <thead class="text-center">
             <tr>
                 <th>Image</th>
                 <th>Page</th>
@@ -17,16 +21,16 @@
             {% for carousel in carousels %}
                 <tr>
                     <td>
-                        <img class="idImage" src="{{ asset('uploads/path/' ~ carousel.path) }}" alt="{{ carousel.path }}" title="{{ carousel.path }}">
+                        <img class="caroussel-picture" src="{{ asset('uploads/path/' ~ carousel.path) }}" alt="{{ carousel.path }}" title="{{ carousel.path }}">
+                    </td>
                     <td>{{ carousel.page }}</td>
-                    <td>{{ carousel.updatedAt ? carousel.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
                     <td>
-                        <a href="{{ path('admin_carousel_edit', {'id': carousel.id}) }}">Modifier</a>
+                        <a class="btn btn-primary" href="{{ path('admin_carousel_edit', {'id': carousel.id}) }}">Modifier</a>{{ include('admin/carousel/_delete_form.html.twig') }}
                     </td>
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="5">Aucun résultat trouvé</td>
+                    <td class="text-danger" colspan="8">Aucun résultat trouvé</td>
                 </tr>
             {% endfor %}
             </tbody>

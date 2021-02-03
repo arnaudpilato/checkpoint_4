@@ -43,7 +43,7 @@ class AdminCarouselController extends AbstractController
             $entityManager->persist($carousel);
             $entityManager->flush();
 
-            return $this->redirectToRoute('carousel_index');
+            return $this->redirectToRoute('admin_carousel_index');
         }
 
         return $this->render('admin/carousel/new.html.twig', [
@@ -78,7 +78,7 @@ class AdminCarouselController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('carousel_index');
+            return $this->redirectToRoute('admin_carousel_index');
         }
 
         return $this->render('admin/carousel/edit.html.twig', [

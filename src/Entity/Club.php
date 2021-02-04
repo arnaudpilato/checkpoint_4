@@ -9,10 +9,12 @@ use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use DateTime;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @ORM\Entity(repositoryClass=ClubRepository::class)
  * @Vich\Uploadable
+ * @IsGranted("ROLE_ADMIN")
  */
 class Club
 {

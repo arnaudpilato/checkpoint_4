@@ -25,6 +25,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('admin_brand_index') }}">Marques</a>
                 </li>
+                {% if app.user %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('home') }}">Page d'accueil</a>
+                    </li>
+                    <li class="nav-item ml-3">
+                        <a class="nav-link" href="{{ path('app_logout') }}">Se déconnecter</a>
+                    </li>
+                {% endif %}
             </ul>
         </div>
     </nav>

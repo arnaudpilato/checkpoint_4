@@ -1,41 +1,34 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Home index{% endblock %}
+{% block title %}Accueil{% endblock %}
 
 {% block body %}
-    <h1>Home index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Picture</th>
-                <th>UpdatedAt</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for home in homes %}
-            <tr>
-                <td>{{ home.id }}</td>
-                <td>{{ home.name }}</td>
-                <td>{{ home.description }}</td>
-                <td>{{ home.picture }}</td>
-                <td>{{ home.updatedAt ? home.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('home_show', {'id': home.id}) }}">show</a>
-                    <a href="{{ path('home_edit', {'id': home.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('home_new') }}">Create new</a>
+    <section class="accueil">
+        <div class="container">
+            <h1 class="text-center mt-5">Introduction</h1>
+            <div class="row mt-5">
+                <div class="col text-center">
+                    <p>Bienvenue sur Yuni Cycle, le site spécialié dans la pratique du monocycle</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="container">
+                <div class="row justify-content-around">
+                    {% for home in homes %}
+                        <div class="card m-5" style="width: 22rem;">
+                            <img class="card-img-top" src="{{ asset('uploads/home/' ~ home.picture) }}" alt="{{ home.name }}">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">{{ home.name }}</h5>
+                                <p class="card-text">{{ home.description }}</p>
+                                <div class="text-center">
+                                    <a href="" class="btn btn-primary">Accéder</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}

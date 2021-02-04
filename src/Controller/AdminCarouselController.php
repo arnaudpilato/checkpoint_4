@@ -11,12 +11,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin/carousel")
+ * @Route("/admin/carrousel")
  */
 class AdminCarouselController extends AbstractController
 {
     /**
-     * @Route("/", name="admin_carousel_index", methods={"GET"})
+     * @Route("/", name="carousel_index", methods={"GET"})
      * @param CarouselRepository $carouselRepository
      * @return Response
      */
@@ -28,7 +28,7 @@ class AdminCarouselController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="admin_carousel_new", methods={"GET","POST"})
+     * @Route("/nouveau", name="carousel_new", methods={"GET","POST"})
      * @param Request $request
      * @return Response
      */
@@ -42,8 +42,8 @@ class AdminCarouselController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($carousel);
             $entityManager->flush();
-
-            return $this->redirectToRoute('admin_carousel_index');
+            $this->addFlash('success', 'l\'image à bien été ajoutée');
+            return $this->redirectToRoute('carousel_index');
         }
 
         return $this->render('admin/carousel/new.html.twig', [
@@ -53,7 +53,7 @@ class AdminCarouselController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="admin_carousel_show", methods={"GET"})
+     * @Route("/{id}", name="carousel_show", methods={"GET"})
      * @param Carousel $carousel
      * @return Response
      */
@@ -65,7 +65,7 @@ class AdminCarouselController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="admin_carousel_edit", methods={"GET","POST"})
+     * @Route("/{id}/modifier", name="carousel_edit", methods={"GET","POST"})
      * @param Request $request
      * @param Carousel $carousel
      * @return Response
@@ -77,8 +77,8 @@ class AdminCarouselController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('admin_carousel_index');
+            $this->addFlash('success', 'l\'image à bien été modifiée');
+            return $this->redirectToRoute('carousel_index');
         }
 
         return $this->render('admin/carousel/edit.html.twig', [
@@ -88,19 +88,20 @@ class AdminCarouselController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="admin_carousel_delete", methods={"DELETE"})
+     * @Route("/{id}", name="carousel_delete", methods={"DELETE"})
      * @param Request $request
      * @param Carousel $carousel
      * @return Response
      */
     public function delete(Request $request, Carousel $carousel): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$carousel->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $carousel->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($carousel);
             $entityManager->flush();
+            $this->addFlash('danger', 'l\'image à bien été supprimée');
         }
 
-        return $this->redirectToRoute('admin_carousel_index');
+        return $this->redirectToRoute('carousel_index');
     }
 }

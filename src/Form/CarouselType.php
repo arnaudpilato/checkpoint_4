@@ -13,8 +13,11 @@ class CarouselType extends AbstractType
 {
     public const HOME_PAGE = 'Accueil';
     public const CLUB_PAGE = 'Club';
+    public const DISCIPLINE_PAGE = 'Discipline';
+    public const EQUIPMENT_PAGE = 'Equipement';
+    public const BRAND_PAGE = 'Marque';
 
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('page', ChoiceType::class, [
@@ -22,6 +25,9 @@ class CarouselType extends AbstractType
                 'choices' => [
                     'Accueil' => self::HOME_PAGE,
                     'Club' => self::CLUB_PAGE,
+                    'Discipline' => self::DISCIPLINE_PAGE,
+                    'Equipment' => self::EQUIPMENT_PAGE,
+                    'Marque' => self::BRAND_PAGE,
                 ]])
             ->add('pathFile', VichFileType::class, [
                 'required' => false,
@@ -31,7 +37,7 @@ class CarouselType extends AbstractType
             ]);
     }
 
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'data_class' => Carousel::class,

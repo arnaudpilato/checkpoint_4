@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-use App\Repository\ClubRepository;
+use App\Repository\BrandRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\HttpFoundation\File\File;
@@ -11,10 +11,10 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use DateTime;
 
 /**
- * @ORM\Entity(repositoryClass=ClubRepository::class)
+ * @ORM\Entity(repositoryClass=BrandRepository::class)
  * @Vich\Uploadable
  */
-class Club
+class Brand
 {
     /**
      * @ORM\Id
@@ -29,27 +29,12 @@ class Club
     private ?string $name;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private ?int $longitude;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private ?int $latitude;
-
-    /**
-     * @ORM\Column(type="text")
-     */
-    private ?string $description;
-
-    /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private string $picture = '';
+    private ?string $picture = '';
 
     /**
-     * @Vich\UploadableField(mapping="club_file", fileNameProperty="picture")
+     * @Vich\UploadableField(mapping="brand_file", fileNameProperty="picture")
      * @var File|null
      * @Assert\File(
      *     maxSize="1000000",
@@ -61,6 +46,11 @@ class Club
      * @ORM\Column(type="datetime", nullable=true)
      */
     private ?\DateTimeInterface $updatedAt;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private ?string $description;
 
     public function getId(): ?int
     {
@@ -79,26 +69,14 @@ class Club
         return $this;
     }
 
-    public function getLongitude(): ?int
+    public function getPicture(): ?string
     {
-        return $this->longitude;
+        return $this->picture;
     }
 
-    public function setLongitude(?int $longitude): self
+    public function setPicture(string $picture): self
     {
-        $this->longitude = $longitude;
-
-        return $this;
-    }
-
-    public function getLatitude(): ?int
-    {
-        return $this->latitude;
-    }
-
-    public function setLatitude(?int $latitude): self
-    {
-        $this->latitude = $latitude;
+        $this->picture = $picture;
 
         return $this;
     }
@@ -115,18 +93,6 @@ class Club
         return $this;
     }
 
-    public function getPicture(): ?string
-    {
-        return $this->picture;
-    }
-
-    public function setPicture(string $picture): self
-    {
-        $this->picture = $picture;
-
-        return $this;
-    }
-
     public function getUpdatedAt(): ?\DateTimeInterface
     {
         return $this->updatedAt;
@@ -139,7 +105,7 @@ class Club
         return $this;
     }
 
-    public function setPictureFile(?File $image = null): Club
+    public function setPictureFile(?File $image = null): Brand
     {
         $this->pictureFile = $image;
         if ($image) {

@@ -1,10 +1,10 @@
 {% extends 'admin.html.twig' %}
 
-{% block title %}Discipline index{% endblock %}
+{% block title %}Marque index{% endblock %}
 
 {% block body %}
     <div class="container">
-        <h1 class="text-center my-5">Disciplines</h1>
+        <h1 class="text-center my-5">Marques</h1>
         <table class="table">
             <thead>
             <tr>
@@ -15,26 +15,26 @@
             </tr>
             </thead>
             <tbody>
-            {% for discipline in disciplines %}
+            {% for brand in brands %}
                 <tr>
                     <td>
-                        <img class="admin-picture" src="{{ asset('uploads/discipline/' ~ discipline.picture) }}" alt="{{ discipline.picture }}" title="{{ discipline.picture }}">
+                        <img class="admin-picture" src="{{ asset('uploads/brand/' ~ brand.picture) }}" alt="{{ brand.picture }}" title="{{ brand.picture }}">
                     </td>
-                    <td>{{ discipline.name }}</td>
-                    <td>{{ discipline.description }}</td>
+                    <td>{{ brand.name }}</td>
+                    <td>{{ brand.description }}</td>
                     <td>
-                        <a class="btn btn-secondary" href="{{ path('admin_discipline_edit', {'id': discipline.id}) }}">Modifier</a>
+                        <a class="btn btn-secondary" href="{{ path('admin_brand_edit', {'id': brand.id}) }}">Modifier</a>
                     </td>
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="5">Aucun résultat trouvé</td>
+                    <td colspan="6">Aucun résultat trouvé</td>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
         <div class="text-center mt-5">
-            <a class="btn btn-secondary" href="{{ path('admin_discipline_new') }}">Ajouter</a>
+            <a class="btn btn-secondary" href="{{ path('admin_brand_new') }}">Ajouter</a>
         </div>
         <div class="text-right">
             <a class="btn btn-secondary mt-5" href="{{ path('admin_index') }}">Retour</a>

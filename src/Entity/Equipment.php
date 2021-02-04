@@ -29,9 +29,9 @@ class Equipment
     private ?string $name;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      */
-    private ?string $picture = '';
+    private ?string $picture;
 
     /**
      * @Vich\UploadableField(mapping="equipment_file", fileNameProperty="picture")

@@ -13,3 +13,6 @@ vich_uploader:
         discipline_file:
             uri_prefix: /images/discipline
             upload_destination: '%upload_directory_discipline%'
+        brand_file:
+            uri_prefix: /images/brand
+            upload_destination: '%upload_directory_brand%'

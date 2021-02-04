@@ -1,69 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Accueil{% endblock %}
+{% block title %}Home index{% endblock %}
 
 {% block body %}
-    {% block carousel %}{% include 'include/_carousel.html.twig' %}{% endblock %}
-    <section class="accueil">
-        <div class="container">
-            <h1 class="text-center mt-5">Introduction</h1>
-            <div class="row mt-5">
-                <div class="col text-center">
-                    <p>Bienvenue sur Yuni Cycle, le site spécialié dans la pratique du monocycle</p>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row mt-5">
-                    <img class="img col-4 p-0" src="{{ asset('build/images/chat.1f866ed6.jpg') }}" alt="Image discussion">
-                    <div class="col-7 offset-1">
-                        <h2>Discussion</h2>
-                        <p class="mt-3">Si vous souhaitez parler de votre passion avec nous ou si vous avez des questions c'est ici!</p>
-                        <div class="text-center mt-5">
-                            <a class="btn btn-primary" href="#">Rubrique Discussion</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-5 flex-row-reverse">
-                    <img class="img col-4 p-0" src="{{ asset('build/images/chat.1f866ed6.jpg') }}" alt="Image discussion">
-                    <div class="col-8">
-                        <h2>Equipement</h2>
-                        <p class="mt-3">Besoin de renseignements sur du materiel ou découvrir des nouveaux éléments? C'est ici!</p>
-                        <div class="text-center mt-5">
-                            <a class="btn btn-primary" href="#">Rubrique Equipement</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-5">
-                    <img class="img col-4 p-0" src="{{ asset('build/images/chat.1f866ed6.jpg') }}" alt="Image discussion">
-                    <div class="col-7 offset-1">
-                        <h2>Disciplines</h2>
-                        <p class="mt-3">Athlétisme, Cross, Freestyle... Les disciplines c'est ici!</p>
-                        <div class="text-center mt-5">
-                            <a class="btn btn-primary" href="#">Rubrique Disciplines</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-5 flex-row-reverse">
-                    <img class="img col-4 p-0" src="{{ asset('build/images/chat.1f866ed6.jpg') }}" alt="Image discussion">
-                    <div class="col-8">
-                        <h2>Marques</h2>
-                        <p class="mt-3">Besoin d'acheter du materiel ou obtenir des renseignements? C'est ici!</p>
-                        <div class="text-center mt-5">
-                            <a class="btn btn-primary" href="#">Rubrique Marques</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-5">
-                    <img class="img col-4 p-0" src="{{ asset('build/images/chat.1f866ed6.jpg') }}" alt="Image discussion">
-                    <div class="col-7 offset-1">
-                        <h2>Clubs</h2>
-                        <p class="mt-3">Vous voulez rencontrer d'autres monocyclistes ou découvrir qu'elles sont les clubs à coté de chez vous? C'est ici</p>
-                        <div class="text-center mt-5">
-                            <a class="btn btn-primary" href="{{ path('club') }}">Rubrique Clubs</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <h1>Home index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Picture</th>
+                <th>UpdatedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for home in homes %}
+            <tr>
+                <td>{{ home.id }}</td>
+                <td>{{ home.name }}</td>
+                <td>{{ home.description }}</td>
+                <td>{{ home.picture }}</td>
+                <td>{{ home.updatedAt ? home.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('home_show', {'id': home.id}) }}">show</a>
+                    <a href="{{ path('home_edit', {'id': home.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('home_new') }}">Create new</a>
 {% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Administration{% endblock %}
+
+{% block body %}
+    <section class="accueil-admin">
+        <div class="container-fluid">
+            <h1 class="text-center mt-5">Administration</h1>
+            <div class="row justify-content-around">
+                <div>
+                    <div class="text-center my-4">
+                        <h2>Accueil</h2>
+                    </div>
+                    <div class="text-center">
+                        <a href="{{ path('admin_home_index') }}"><img class="logo" src="{{ asset('build/images/home.png') }}"></a>
+                    </div>
+                </div>
+                <div>
+                    <div class="text-center my-4">
+                        <h2>Caroussel</h2>
+                    </div>
+                    <div class="text-center">
+                        <a href="{{ path('admin_carousel_index') }}"><img class="logo" src="{{ asset('build/images/carousel.png') }}" alt="Image caroussel"></a>
+                    </div>
+                </div>
+                <div>
+                    <div class="text-center my-4">
+                        <h2>Clubs</h2>
+                    </div>
+                    <div class="text-center">
+                        <a href="{{ path('admin_club_index') }}"><img class="logo" src="{{ asset('build/images/club.png') }}" alt="Image club"></a>
+                    </div>
+                </div>
+                <div>
+                    <div class="text-center my-4">
+                        <h2>Disciplines</h2>
+                    </div>
+                    <div class="text-center">
+                        <a href="{{ path('admin_discipline_index') }}"><img class="logo" src="{{ asset('build/images/discipline.png') }}" alt="Image équipement"></a>
+                    </div>
+                </div>
+                <div>
+                    <div class="text-center my-4">
+                        <h2>Equipements</h2>
+                    </div>
+                    <div class="text-center">
+                        <a href="{{ path('admin_equipment_index') }}"><img class="logo" src="{{ asset('build/images/equipment.png') }}" alt="Image équipement"></a>
+                    </div>
+                </div>
+                <div>
+                    <div class="text-center my-4">
+                        <h2>Marques</h2>
+                    </div>
+                    <div class="text-center">
+                        <a href="{{ path('admin_brand_index') }}"><img class="logo" src="{{ asset('build/images/brand.png') }}" alt="Image équipement"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

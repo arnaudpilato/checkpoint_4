@@ -1,0 +1,13 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Edit Home{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="text-center my-5">Modifier</h1>
+        {{ include('admin/home/_form.html.twig', {'button_label': 'Enregistrer'}) }}
+        <div class="text-right mt-5">
+            <a class="btn btn-secondary" href="{{ path('admin_home_index') }}">retour</a>
+        </div>
+    </div>
+{% endblock %}

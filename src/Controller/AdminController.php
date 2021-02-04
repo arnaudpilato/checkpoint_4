@@ -8,18 +8,18 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-class HomeController extends AbstractController
+class AdminController extends AbstractController
 {
     /**
      * @param CarouselRepository $carouselRepository
      * @return Response
-     * @Route("/", name="home")
+     * @Route("/admin", name="admin_index")
      */
     public function index(CarouselRepository $carouselRepository): Response
     {
         $pictures = $carouselRepository->findBy(['page' => CarouselType::HOME_PAGE]);
 
-        return $this->render('home/index.html.twig', [
+        return $this->render('admin/index.html.twig', [
             'pictures' => $pictures,
         ]);
     }

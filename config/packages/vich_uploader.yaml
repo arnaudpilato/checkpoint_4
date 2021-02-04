@@ -16,3 +16,6 @@ vich_uploader:
         brand_file:
             uri_prefix: /images/brand
             upload_destination: '%upload_directory_brand%'
+        home_file:
+            uri_prefix: /images/home
+            upload_destination: '%upload_directory_home%'

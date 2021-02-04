@@ -1,61 +1,43 @@
 {% extends 'admin.html.twig' %}
 
-{% block title %}Administration{% endblock %}
+{% block title %}Home index{% endblock %}
 
 {% block body %}
-    <section class="accueil-admin">
-        <div class="container-fluid">
-            <h1 class="text-center mt-5">Administration</h1>
-            <div class="row justify-content-around">
-                <div>
-                    <div class="text-center my-4">
-                        <h2>Accueil</h2>
-                    </div>
-                    <div class="text-center">
-                        <a href="#"><img class="logo" src="{{ asset('build/images/home.png') }}"></a>
-                    </div>
-                </div>
-                <div>
-                    <div class="text-center my-4">
-                        <h2>Caroussel</h2>
-                    </div>
-                    <div class="text-center">
-                        <a href="{{ path('admin_carousel_index') }}"><img class="logo" src="{{ asset('build/images/carousel.png') }}" alt="Image caroussel"></a>
-                    </div>
-                </div>
-                <div>
-                    <div class="text-center my-4">
-                        <h2>Clubs</h2>
-                    </div>
-                    <div class="text-center">
-                        <a href="{{ path('admin_club_index') }}"><img class="logo" src="{{ asset('build/images/club.png') }}" alt="Image club"></a>
-                    </div>
-                </div>
-                <div>
-                    <div class="text-center my-4">
-                        <h2>Disciplines</h2>
-                    </div>
-                    <div class="text-center">
-                        <a href="{{ path('admin_discipline_index') }}"><img class="logo" src="{{ asset('build/images/discipline.png') }}" alt="Image équipement"></a>
-                    </div>
-                </div>
-                <div>
-                    <div class="text-center my-4">
-                        <h2>Equipements</h2>
-                    </div>
-                    <div class="text-center">
-                        <a href="{{ path('admin_equipment_index') }}"><img class="logo" src="{{ asset('build/images/equipment.png') }}" alt="Image équipement"></a>
-                    </div>
-                </div>
-                <div>
-                    <div class="text-center my-4">
-                        <h2>Marques</h2>
-                    </div>
-                    <div class="text-center">
-                        <a href="{{ path('admin_brand_index') }}"><img class="logo" src="{{ asset('build/images/brand.png') }}" alt="Image équipement"></a>
-                    </div>
-                </div>
-            </div>
+    <div class="container">
+        <h1 class="text-center my-5">Home</h1>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Picture</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for home in homes %}
+                <tr>
+                    <td>
+                        <img class="admin-picture" src="{{ asset('uploads/home/' ~ home.picture) }}" alt="{{ home.picture }}" title="{{ home.picture }}">
+                    </td>
+                    <td>{{ home.name }}</td>
+                    <td>{{ home.description }}</td>
+                    <td>
+                        <a class="btn btn-secondary" href="{{ path('admin_home_edit', {'id': home.id}) }}">Modifier</a>{{ include('admin/home/_delete_form.html.twig') }}
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6">Aucun résultat trouvé</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="text-center">
+            <a class="btn btn-secondary" href="{{ path('admin_home_new') }}">Ajouter</a>
         </div>
-    </section>
+        <div class="text-right">
+            <a class="btn btn-secondary mt-5" href="{{ path('admin_index') }}">Retour</a>
+        </div>
+    </div>
 {% endblock %}

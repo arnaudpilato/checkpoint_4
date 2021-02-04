@@ -5,9 +5,7 @@
 {% block body %}
     <div class="container">
         <h1 class="text-center my-5">Modifier</h1>
-        <div class="mt-5">
             {{ include('admin/brand/_form.html.twig', {'button_label': 'Enregistrer'}) }}
-        </div>
         <div class="text-right">
             <a class="btn btn-secondary" href="{{ path('admin_brand_index') }}">Retour</a>
         </div>

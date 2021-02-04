@@ -8,11 +8,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * Class IndexController
- * @package App\Controller
- * @Route("/")
- */
 class HomeController extends AbstractController
 {
     /**

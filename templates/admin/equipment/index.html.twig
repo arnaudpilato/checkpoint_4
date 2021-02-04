@@ -4,24 +4,24 @@
 
 {% block body %}
     <div class="container">
-        <h1 class="text-center my-5">Equipement</h1>
+        <h1 class="text-center my-5">Equipements</h1>
         <table class="table text-center">
             <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
                 <th>Picture</th>
+                <th>Name</th>
                 <th>Description</th>
                 <th>Brand</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
             </thead>
             <tbody>
             {% for equipment in equipment %}
                 <tr>
-                    <td>{{ equipment.id }}</td>
+                    <td>
+                        <img class="admin-picture" src="{{ asset('uploads/equipment/' ~ equipment.picture) }}" alt="{{ equipment.picture }}" title="{{ equipment.picture }}">
+                    </td>
                     <td>{{ equipment.name }}</td>
-                    <td>{{ equipment.picture }}</td>
                     <td>{{ equipment.description }}</td>
                     <td>{{ equipment.brand }}</td>
                     <td>

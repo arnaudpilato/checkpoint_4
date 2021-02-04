@@ -42,6 +42,7 @@ class AdminClubController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($club);
             $entityManager->flush();
+            $this->addFlash('success', 'Le club à été créé');
 
             return $this->redirectToRoute('admin_club_index');
         }
@@ -77,6 +78,7 @@ class AdminClubController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'Le club à été modifié');
 
             return $this->redirectToRoute('admin_club_index');
         }
@@ -99,6 +101,7 @@ class AdminClubController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($club);
             $entityManager->flush();
+            $this->addFlash('danger', 'Le club à été supprimé');
         }
 
         return $this->redirectToRoute('admin_club_index');

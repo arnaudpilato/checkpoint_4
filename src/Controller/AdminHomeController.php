@@ -42,6 +42,7 @@ class AdminHomeController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($home);
             $entityManager->flush();
+            $this->addFlash('success', 'La rubrique à bien été créée');
 
             return $this->redirectToRoute('admin_home_index');
         }
@@ -77,6 +78,7 @@ class AdminHomeController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'La rubrique à bien été modifiée');
 
             return $this->redirectToRoute('admin_home_index');
         }
@@ -99,6 +101,7 @@ class AdminHomeController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($home);
             $entityManager->flush();
+            $this->addFlash('danger', 'La rubrique à été supprimée');
         }
 
         return $this->redirectToRoute('admin_home_index');

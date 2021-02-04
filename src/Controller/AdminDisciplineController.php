@@ -42,6 +42,7 @@ class AdminDisciplineController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($discipline);
             $entityManager->flush();
+            $this->addFlash('success', 'La discipline à été créée');
 
             return $this->redirectToRoute('admin_discipline_index');
         }
@@ -77,6 +78,7 @@ class AdminDisciplineController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'La discipline à bien été créée');
 
             return $this->redirectToRoute('admin_discipline_index');
         }
@@ -99,6 +101,7 @@ class AdminDisciplineController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($discipline);
             $entityManager->flush();
+            $this->addFlash('danger', 'La discipline à été supprimée');
         }
 
         return $this->redirectToRoute('admin_discipline_index');

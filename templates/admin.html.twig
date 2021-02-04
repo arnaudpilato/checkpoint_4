@@ -7,6 +7,17 @@
     {% block stylesheets %}{{ encore_entry_link_tags('admin') }}{% endblock %}
 </head>
 <body>
+<header>
+    {% block flash %}
+        {% for category, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="mt-4 addFlash alert alert-{{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+    {% endblock %}
+</header>
     {% block navBar %}{% include 'admin/include/_navbar.html.twig' %}{% endblock %}
     {% block body %}{% endblock %}
     {% block footer %}{% include 'admin/include/_footer.html.twig' %}{% endblock %}

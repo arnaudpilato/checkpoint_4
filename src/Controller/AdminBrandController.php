@@ -42,6 +42,7 @@ class AdminBrandController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($brand);
             $entityManager->flush();
+            $this->addFlash('success', 'La marque à bien été créée');
 
             return $this->redirectToRoute('admin_brand_index');
         }
@@ -77,6 +78,7 @@ class AdminBrandController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'La marque à bien été modifiée');
 
             return $this->redirectToRoute('admin_brand_index');
         }
@@ -99,6 +101,7 @@ class AdminBrandController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($brand);
             $entityManager->flush();
+            $this->addFlash('danger', 'La marque à été supprimée');
         }
 
         return $this->redirectToRoute('admin_brand_index');

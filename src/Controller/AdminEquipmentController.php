@@ -42,6 +42,7 @@ class AdminEquipmentController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($equipment);
             $entityManager->flush();
+            $this->addFlash('success', "L'équipement à bien été créé");
 
             return $this->redirectToRoute('admin_equipment_index');
         }
@@ -77,6 +78,7 @@ class AdminEquipmentController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', "L'équipement à bien été créé");
 
             return $this->redirectToRoute('admin_equipment_index');
         }
@@ -99,6 +101,7 @@ class AdminEquipmentController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($equipment);
             $entityManager->flush();
+            $this->addFlash('danger', "L'équipement à été supprimé");
         }
 
         return $this->redirectToRoute('admin_equipment_index');

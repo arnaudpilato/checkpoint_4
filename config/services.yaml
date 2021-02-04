@@ -8,6 +8,7 @@ parameters:
     upload_directory_club: '%kernel.project_dir%/public/uploads/club/'
     upload_directory_equipment: '%kernel.project_dir%/public/uploads/equipment/'
     upload_directory_discipline: '%kernel.project_dir%/public/uploads/discipline/'
+    upload_directory_brand: '%kernel.project_dir%/public/uploads/brand/'
 
 services:
     # default configuration for services in *this* file

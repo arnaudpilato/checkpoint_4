@@ -4,7 +4,7 @@
 
 {% block body %}
     <div class="container">
-        <h1 class="text-center my-5">Club index</h1>
+        <h1 class="text-center my-5">Clubs</h1>
         <table class="table text-center">
             <thead>
             <tr>
@@ -20,7 +20,7 @@
             {% for club in clubs %}
                 <tr>
                     <td>
-                        <img class="caroussel-picture" src="{{ asset('uploads/club/' ~ club.picture) }}" alt="{{ club.picture }}" title="{{ club.picture }}">
+                        <img class="admin-picture" src="{{ asset('uploads/club/' ~ club.picture) }}" alt="{{ club.picture }}" title="{{ club.picture }}">
                     </td>
                     <td>{{ club.name }}</td>
                     <td>{{ club.description }}</td>

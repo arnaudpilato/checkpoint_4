@@ -31,12 +31,12 @@ class Club
     private ?string $name;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="float", nullable=true)
      */
     private ?int $longitude;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="float", nullable=true)
      */
     private ?int $latitude;
 
@@ -48,7 +48,7 @@ class Club
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private string $picture = '';
+    private ?string $picture = '';
 
     /**
      * @Vich\UploadableField(mapping="club_file", fileNameProperty="picture")

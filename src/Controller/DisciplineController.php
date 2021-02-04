@@ -20,7 +20,7 @@ class DisciplineController extends AbstractController
      */
     public function index(CarouselRepository $carouselRepository, DisciplineRepository $disciplineRepository): Response
     {
-        $pictures = $carouselRepository->findBy(['page' => CarouselType::CLUB_PAGE]);
+        $pictures = $carouselRepository->findBy(['page' => CarouselType::DISCIPLINE_PAGE]);
 
         return $this->render('discipline/index.html.twig', [
             'disciplines' => $disciplineRepository->findAll(),

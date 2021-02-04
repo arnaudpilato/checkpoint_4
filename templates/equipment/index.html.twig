@@ -3,39 +3,22 @@
 {% block title %}Equipment index{% endblock %}
 
 {% block body %}
-    <h1>Equipment index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Picture</th>
-                <th>Description</th>
-                <th>Brand</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for equipment in equipment %}
-            <tr>
-                <td>{{ equipment.id }}</td>
-                <td>{{ equipment.name }}</td>
-                <td>{{ equipment.picture }}</td>
-                <td>{{ equipment.description }}</td>
-                <td>{{ equipment.brand }}</td>
-                <td>
-                    <a href="{{ path('equipment_show', {'id': equipment.id}) }}">show</a>
-                    <a href="{{ path('equipment_edit', {'id': equipment.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
+    <div class="container">
+        <h1 class="text-center mt-5">Equipment</h1>
+        <div class="row mt-5">
+            <div class="col text-center">
+                <p>Cette section concerne les différents éléments d'un monocycle</p>
+            </div>
+        </div>
+        {% for equipment in equipments %}
+            <div class="row mt-5">
+                <img class="img col-4 p-0" src="{{ asset('uploads/equipment/' ~ equipment.picture) }}" alt="Image club">
+                <div class="col-7 offset-1">
+                    <h2 class="text-center">{{ equipment.name }}</h2>
+                    <p class="mt-3">{{ equipment.description }}</p>
+                </div>
+            </div>
         {% endfor %}
-        </tbody>
-    </table>
+    </div>
 
-    <a href="{{ path('equipment_new') }}">Create new</a>
 {% endblock %}

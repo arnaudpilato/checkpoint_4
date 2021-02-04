@@ -1,0 +1,47 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Club index{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="text-center my-5">Club index</h1>
+        <table class="table text-center">
+            <thead>
+            <tr>
+                <th>Picture</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Longitude</th>
+                <th>Latitude</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for club in clubs %}
+                <tr>
+                    <td>
+                        <img class="caroussel-picture" src="{{ asset('uploads/club/' ~ club.picture) }}" alt="{{ club.picture }}" title="{{ club.picture }}">
+                    </td>
+                    <td>{{ club.name }}</td>
+                    <td>{{ club.description }}</td>
+                    <td>{{ club.longitude }}</td>
+                    <td>{{ club.latitude }}</td>
+                    <td>
+                        <a class="btn btn-secondary" href="{{ path('admin_club_edit', {'id': club.id}) }}">Modifier</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="8">Aucun résultat trouvé</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="text-center">
+            <a class="btn btn-secondary mt-5" href="{{ path('admin_club_new') }}">Ajouter</a>
+        </div>
+        <div class="text-right">
+            <a class="btn btn-secondary mt-5" href="{{ path('admin_index') }}">Retour</a>
+        </div>
+    </div>
+{% endblock %}

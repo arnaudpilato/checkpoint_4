@@ -4,3 +4,6 @@ vich_uploader:
         path_file:
             uri_prefix: /images/path
             upload_destination: '%upload_directory_path%'
+        club_file:
+            uri_prefix: /images/club
+            upload_destination: '%upload_directory_club%'

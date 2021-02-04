@@ -1,0 +1,13 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Edit Club{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="text-center mt-5">Modifier</h1>
+        {{ include('admin/club/_form.html.twig', {'button_label': 'Modifier'}) }}
+        <div class="text-right mt-5">
+            <a class="btn btn-secondary" href="{{ path('admin_club_index') }}">Retour</a>
+        </div>
+    </div>
+{% endblock %}

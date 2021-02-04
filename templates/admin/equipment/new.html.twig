@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau équipement{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="text-center my-5">Ajouter un équipement</h1>
+        {{ include('admin/equipment/_form.html.twig') }}
+        <div class="text-right mt-5">
+            <a class="btn btn-secondary" href="{{ path('admin_equipment_index') }}">Retour</a>
+        </div>
+    </div>
+{% endblock %}

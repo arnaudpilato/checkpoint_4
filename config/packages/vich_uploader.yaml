@@ -7,3 +7,6 @@ vich_uploader:
         club_file:
             uri_prefix: /images/club
             upload_destination: '%upload_directory_club%'
+        equipment_file:
+            uri_prefix: /images/equipment
+            upload_destination: '%upload_directory_equipment%'

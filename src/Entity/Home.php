@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-use App\Repository\BrandRepository;
+use App\Repository\HomeRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\HttpFoundation\File\File;
@@ -11,10 +11,10 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use DateTime;
 
 /**
- * @ORM\Entity(repositoryClass=BrandRepository::class)
+ * @ORM\Entity(repositoryClass=HomeRepository::class)
  * @Vich\Uploadable
  */
-class Brand
+class Home
 {
     /**
      * @ORM\Id
@@ -29,12 +29,17 @@ class Brand
     private ?string $name;
 
     /**
+     * @ORM\Column(type="text")
+     */
+    private ?string $description;
+
+    /**
      * @ORM\Column(type="text", nullable=true)
      */
     private ?string $picture = '';
 
     /**
-     * @Vich\UploadableField(mapping="brand_file", fileNameProperty="picture")
+     * @Vich\UploadableField(mapping="home_file", fileNameProperty="picture")
      * @var File|null
      * @Assert\File(
      *     maxSize="1000000",
@@ -46,11 +51,6 @@ class Brand
      * @ORM\Column(type="datetime", nullable=true)
      */
     private ?\DateTimeInterface $updatedAt;
-
-    /**
-     * @ORM\Column(type="text")
-     */
-    private ?string $description;
 
     public function getId(): ?int
     {
@@ -69,18 +69,6 @@ class Brand
         return $this;
     }
 
-    public function getPicture(): ?string
-    {
-        return $this->picture;
-    }
-
-    public function setPicture(?string $picture): self
-    {
-        $this->picture = $picture;
-
-        return $this;
-    }
-
     public function getDescription(): ?string
     {
         return $this->description;
@@ -89,6 +77,18 @@ class Brand
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getPicture(): ?string
+    {
+        return $this->picture;
+    }
+
+    public function setPicture(?string $picture): self
+    {
+        $this->picture = $picture;
 
         return $this;
     }
@@ -105,7 +105,7 @@ class Brand
         return $this;
     }
 
-    public function setPictureFile(?File $image = null): Brand
+    public function setPictureFile(?File $image = null): Home
     {
         $this->pictureFile = $image;
         if ($image) {

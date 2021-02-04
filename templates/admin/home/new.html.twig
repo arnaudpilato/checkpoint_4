@@ -1,0 +1,13 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}New Home{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="text-center my-5">Ajouter une nouvelle rubrique</h1>
+        {{ include('admin/home/_form.html.twig') }}
+        <div class="text-right mt-5">
+            <a class="btn btn-secondary" href="{{ path('admin_home_index') }}">Retour</a>
+        </div>
+    </div>
+{% endblock %}

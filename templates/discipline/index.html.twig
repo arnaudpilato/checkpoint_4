@@ -3,37 +3,23 @@
 {% block title %}Discipline index{% endblock %}
 
 {% block body %}
-    <h1>Discipline index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Picture</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
+    <div class="container">
+        <h1 class="text-center my-5">Discipline</h1>
+        <div class="row mt-5">
+            <div class="col text-center">
+                <p>Cette section regroupe les différentes disciplines du monocycle</p>
+            </div>
+        </div>
         {% for discipline in disciplines %}
-            <tr>
-                <td>{{ discipline.id }}</td>
-                <td>{{ discipline.name }}</td>
-                <td>{{ discipline.description }}</td>
-                <td>{{ discipline.picture }}</td>
-                <td>
-                    <a href="{{ path('discipline_show', {'id': discipline.id}) }}">show</a>
-                    <a href="{{ path('discipline_edit', {'id': discipline.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
+            <div class="reverse row mt-5">
+                <img class="img col-4 p-0" src="{{ asset('uploads/discipline/' ~ discipline.picture) }}" alt="Image club">
+                <div class="col-7 offset-1">
+                    <h2>{{ discipline.name }}</h2>
+                    <p class="mt-3">{{ discipline.description }}</p>
+                </div>
+            </div>
         {% endfor %}
-        </tbody>
-    </table>
+    </div>
 
-    <a href="{{ path('discipline_new') }}">Create new</a>
+
 {% endblock %}

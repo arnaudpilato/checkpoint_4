@@ -21,3 +21,7 @@ body {
     border-radius: $border-radius;
     box-shadow: $box-shadow;
 }
+
+.reverse:nth-child(2n) {
+    flex-direction: row-reverse;
+}

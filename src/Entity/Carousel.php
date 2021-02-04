@@ -10,10 +10,12 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use DateTime;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @ORM\Entity(repositoryClass=CarouselRepository::class)
  * @Vich\Uploadable
+ * @IsGranted("ROLE_ADMIN")
  */
 class Carousel
 {

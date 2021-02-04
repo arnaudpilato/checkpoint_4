@@ -4,32 +4,40 @@
 
 {% block body %}
     <section class="accueil-admin">
-        <div class="container">
+        <div class="container-fluid">
             <h1 class="text-center mt-5">Administration</h1>
-        </div>
-        <div class="row">
-            <div class="col-4">
-                <div class="text-center my-4">
-                    <h2>Accueil</h2>
+            <div class="row justify-content-around">
+                <div>
+                    <div class="text-center my-4">
+                        <h2>Accueil</h2>
+                    </div>
+                    <div class="text-center">
+                        <a href="#"><img class="logo" src="{{ asset('build/images/home.png') }}"></a>
+                    </div>
                 </div>
-                <div class="text-center">
-                    <a href="#"><img class="logo" src="{{ asset('build/images/home.png') }}"></a>
+                <div>
+                    <div class="text-center my-4">
+                        <h2>Caroussel</h2>
+                    </div>
+                    <div class="text-center">
+                        <a href="{{ path('admin_carousel_index') }}"><img class="logo" src="{{ asset('build/images/carousel.png') }}" alt="Image caroussel"></a>
+                    </div>
                 </div>
-            </div>
-            <div class="col-4">
-                <div class="text-center my-4">
-                    <h2>Caroussel</h2>
+                <div>
+                    <div class="text-center my-4">
+                        <h2>Clubs</h2>
+                    </div>
+                    <div class="text-center">
+                        <a href="{{ path('admin_club_index') }}"><img class="logo" src="{{ asset('build/images/club.png') }}" alt="Image club"></a>
+                    </div>
                 </div>
-                <div class="text-center">
-                    <a href="{{ path('admin_carousel_index') }}"><img class="logo" src="{{ asset('build/images/carousel.png') }}"></a>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="text-center my-4">
-                    <h2>Clubs</h2>
-                </div>
-                <div class="text-center">
-                    <a href="{{ path('admin_club_index') }}"><img class="logo" src="{{ asset('build/images/club.png') }}"></a>
+                <div>
+                    <div class="text-center my-4">
+                        <h2>Equipements</h2>
+                    </div>
+                    <div class="text-center">
+                        <a href="{{ path('admin_equipment_index') }}"><img class="logo" src="{{ asset('build/images/equipment.png') }}" alt="Image équipement"></a>
+                    </div>
                 </div>
             </div>
         </div>

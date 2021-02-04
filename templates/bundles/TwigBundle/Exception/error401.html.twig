@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block carousel %}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="mt-5 text-center">Oups!!! Erreur 401...</h1>
+        <h2 class="h3 text-center mt-5">Vous n'avez pas les autorisations pour accéder à cette page</h2>
+        <div class="text-center mt-5">
+            <img src="{{ asset('build/images/error.ec55b60f.png') }}" alt="Logo redirection">
+        </div>
+        <p class="text-center mt-5">Veuillez accepter nos excuses pour ce désagrément.</p>
+        <div class="text-center my-5">
+            <a class="btn btn-secondary" href="{{ path('home') }}">Retour à la page d'accueil</a>
+        </div>
+    </div>
+{% endblock %}
+

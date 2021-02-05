@@ -9,9 +9,6 @@
         {% for picture in pictures %}
             {% set image = picture %}
             <div class="carousel-item  {% if loop.index0 == 0 %} active {% endif %}">
-                <div class="carousel-caption">
-                    <h1 class="title-light">Yuni Cycle</h1>
-                </div>
                 <img class="imageCarousel vh-100 w-100" src="{{ asset('uploads/path/'~image.path) }}" alt="{{ image.path }}">
             </div>
         {% endfor %}

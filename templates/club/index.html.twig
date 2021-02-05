@@ -7,14 +7,14 @@
         <div class="container">
             <h1 class="text-center mt-5">Clubs</h1>
             <p class="mt-5 mb-5 text-center">Vous trouverez ci dessous la liste des différents club de france</p>
-            <div id="map" class="row">
+            <div id="map">
                 {% block map %}{% include 'include/_map.html.twig' %}{% endblock %}
             </div>
             {% for club in clubs %}
-                <div class="row mt-5">
-                    <img class="img col-4 p-0" src="{{ asset('uploads/club/' ~ club.picture) }}" alt="Image club">
-                    <div class="col-7 offset-1">
-                        <h2>{{ club.name }}</h2>
+                <div class="row mt-5 justify-content-around">
+                    <img class="img col-11 col-lg-5 p-0" src="{{ asset('uploads/club/' ~ club.picture) }}" alt="Image club">
+                    <div class="col-11 col-lg-5">
+                        <h2 class="mt-3 text-center">{{ club.name }}</h2>
                         <p class="mt-3">{{ club.description }}</p>
                     </div>
                 </div>

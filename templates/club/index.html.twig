@@ -10,6 +10,7 @@
             <div id="map">
                 {% block map %}{% include 'include/_map.html.twig' %}{% endblock %}
             </div>
+            <h2 class="text-center my-5">Présentation</h2>
             {% for club in clubs %}
                 <div class="row mt-5 justify-content-around">
                     <img class="img col-11 col-lg-5 p-0" src="{{ asset('uploads/club/' ~ club.picture) }}" alt="Image club">

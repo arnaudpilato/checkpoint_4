@@ -1,21 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Mega&display=swap');
+
 $primary: #FF9F1C;
 $secondary: #FFBF69;
 $dark: #2EC4B6;
 $light: #CBF3F0;
-$text-font-size: 1rem;
-$h1-font-size: 4rem;
+$admin-picture: 300px;
+$border-radius: 8px;
+$border-radius-logo: 50%;
+$box-shadow: 3px 3px 15px 0px rgba(0, 0, 0, 0.75);
+$font-title: 'Nunito', sans-serif;
+$font-text: 'Lexend Mega', sans-serif;
+$h1-font-size: 2.7rem;
 $h2-font-size: 2.5rem;
 $h3-font-size: 1.75rem;
 $h4-font-size: 1.2rem;
 $h5-font-size: 1.2rem;
+$height-map: 600px;
+$width-map: 100%;
 $spacing: 8px;
 $spacing-2: $spacing * 2;
 $spacing-3: $spacing * 4;
 $spacing-4: $spacing * 8;
 $spacing-5: $spacing * 16;
-$border-radius: 8px;
-$border-radius-logo: 50%;
-$width-map: 100%;
-$height-map: 600px;
-$box-shadow: 3px 3px 15px 0px rgba(0, 0, 0, 0.75);
-$admin-picture: 300px;
+$text-font-size: 1rem;
+
+
+
+
+
+

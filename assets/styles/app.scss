@@ -7,8 +7,29 @@
     padding: 0;
 }
 
+h1 {
+    padding: $spacing-4 0;
+    font-family: $font-text;
+    font-size: $h1-font-size;
+}
+
+h2 {
+    padding: $spacing-2 0;
+    font-family: $font-text;
+    font-size: $h2-font-size;
+}
+
+h3 {
+    font-family: $font-text;
+}
+
+h4 {
+    font-family: $font-text;
+}
+
 body {
     padding-top: $spacing-3;
+    font-family: $font-text;
 }
 
 .carouselPicture{
@@ -19,7 +40,6 @@ body {
     position: relative;
     object-fit: cover;
     border-radius: $border-radius;
-    box-shadow: $box-shadow;
 }
 
 .reverse:nth-child(2n) {

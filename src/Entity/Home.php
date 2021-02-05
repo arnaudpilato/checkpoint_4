@@ -54,6 +54,11 @@ class Home
      */
     private ?\DateTimeInterface $updatedAt;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private ?string $path;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -119,5 +124,17 @@ class Home
     public function getPictureFile(): ?File
     {
         return $this->pictureFile;
+    }
+
+    public function getPath(): ?string
+    {
+        return $this->path;
+    }
+
+    public function setPath(string $path): self
+    {
+        $this->path = $path;
+
+        return $this;
     }
 }

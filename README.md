@@ -1,7 +1,5 @@
 # checkpoint_4
-The last checkpoint to the Wild Code School!
-
-Projet Coach sportif
+Dernier checkpoint de la formation à la Wild Code School
 
 Réaliser avec le framework Symfony
 
